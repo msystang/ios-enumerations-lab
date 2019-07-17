@@ -318,7 +318,55 @@ b) Given the array `poorlyFormattedDays`, write code that will produce an array 
 
 c) Write a method in `DayOfWeek` called `isWeekend` that determines whether a day is part of the weekend or not and write code to calculate how many week days appear in `poorlyFormattedDays`.
 
+Answer:
+```swift
+let poorlyFormattedDays = ["MONDAY", "wednesday", "Sunday", "monday", "Tuesday", "WEDNESDAY", "thursday", "SATURDAY", "tuesday", "FRIDAy", "Wednesday", "Monday", "Friday", "sunday"]
+var wellFormattedDays = [String]()
 
+for day in poorlyFormattedDays {
+wellFormattedDays.append(day.lowercased())
+}
+
+var howManyWeekdays = 0
+
+enum DayOfWeek: String {
+case monday = "monday"
+case tuesday = "tuesday"
+case wednesday = "wednesday"
+case thursday = "thursday"
+case friday = "friday"
+case saturday = "saturday"
+case sunday = "sunday"
+
+
+func isWeekend() -> Bool {
+switch self {
+case .monday:
+return false
+case .tuesday:
+return false
+case .wednesday:
+return false
+case .thursday:
+return false
+case .friday:
+return false
+case .saturday:
+return true
+case .sunday:
+return true
+}
+}
+}
+
+for day in wellFormattedDays {
+if day != "saturday" && day != "sunday" {
+howManyWeekdays += 1
+}
+}
+
+print(DayOfWeek.monday.isWeekend(), howManyWeekdays)
+```
 ## Question 8 DONE
 
 a) Create an enum called `MetroLine` with cases for the colors of the metro train lines. Create an instance of `MetroLine`.
@@ -372,7 +420,7 @@ print(letter)
 }
 ```
 
-## Question 9 
+## Question 9 DONE
 
 a) Think of your own example of something that can be modeled as an enum and write it. Remember that enums allow you to create instances of a defined list of cases.
 
